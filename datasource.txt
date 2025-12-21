@@ -1,0 +1,2 @@
+https://www.kaggle.com/datasets/nikhiljohnk/tweets-with-sarcasm-and-irony
+https://www.kaggle.com/datasets/danofer/sarcasm
