@@ -24,7 +24,6 @@ def main():
         "qkv_bias": False      # Query-key-value bias
     }
 
-    checkpoint = torch.load("model_and_optimizer_small.pth", weights_only=True)
 
     model = GPTModel(GPT_CONFIG_124M)
     model.load_state_dict(torch.load("sarcasm_finetuned_v1.pth"))
