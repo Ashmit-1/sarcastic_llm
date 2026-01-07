@@ -27,10 +27,10 @@ def main():
         "qkv_bias": False      # Query-key-value bias
     }
 
-
+    FILE_ID = "1AijrKkkfP25ujXl3Xe0wmzG8YaIkDwpP"
     if not os.path.exists("sarcasm_finetuned_v1.pth"):
         print("Downloading model from google drive... This may take some time.")
-        url = "https://drive.google.com/file/d/1AijrKkkfP25ujXl3Xe0wmzG8YaIkDwpP/view?usp=sharing"
+        url = f"https://drive.google.com/uc?id={FILE_ID}"
         gdown.download(url, "sarcasm_finetuned_v1.pth", quiet=False)
         print(f"Model downloaded !!")
 
@@ -39,8 +39,10 @@ def main():
     model.load_state_dict(torch.load("sarcasm_finetuned_v1.pth"))
     model.eval();
 
-
-    tokenizer = tiktoken.get_encoding("gpt2")
+    try:
+        tokenizer = tiktoken.get_encoding("gpt2")
+    except Exception as e:
+        print("Exception occured while tiktoken")
 
 
 
