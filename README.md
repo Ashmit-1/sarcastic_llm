@@ -16,6 +16,7 @@ curl -LsSf https://astral.sh/uv/install.sh | sh
 ```bash
 pip install uv
 ```
+#### Clone the github repo and navigate to the project directory
 
 ### 2️⃣ install dependencies 
 
