@@ -6,7 +6,11 @@ dist/
 wheels/
 *.egg-info
 
+#model files
 *.pth
+
+#secrets
+.env
 
 # Virtual environments
 .venv
