@@ -4,6 +4,9 @@ import tiktoken
 from untrained_model import generate
 from untrained_model import text_to_token_ids
 from untrained_model import token_ids_to_text
+import os
+import gdown
+
 
 def format_input(entry):
     instruction_text = f"""Below is an instruction that describes a task. Write a response that appropriately completes the request. 
@@ -23,6 +26,13 @@ def main():
         "drop_rate": 0.1,      # Dropout rate
         "qkv_bias": False      # Query-key-value bias
     }
+
+
+    if not os.path.exists("sarcasm_finetuned_v1.pth"):
+        print("Downloading model from google drive... This may take some time.")
+        url = "https://drive.google.com/file/d/1AijrKkkfP25ujXl3Xe0wmzG8YaIkDwpP/view?usp=sharing"
+        gdown.download(url, "sarcasm_finetuned_v1.pth", quiet=False)
+        print(f"Model downloaded !!")
 
 
     model = GPTModel(GPT_CONFIG_124M)
