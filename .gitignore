@@ -8,7 +8,7 @@ wheels/
 
 #model files
 *.pth
-
+sarcasm_finetuned_v1.pth
 #secrets
 .env
 
