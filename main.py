@@ -38,7 +38,7 @@ def main():
 
 
     model = GPTModel(GPT_CONFIG_124M)
-    model.load_state_dict(torch.load("sarcasm_finetuned_v1.pth"))
+    model.load_state_dict(torch.load("sarcasm_finetuned_v2.pth"))
     model.eval();
 
     try:
@@ -63,10 +63,10 @@ def main():
     token_ids = generate(
         model=model,
         idx=text_to_token_ids(input_text, tokenizer).to(inference_device),
-        max_new_tokens=30,
+        max_new_tokens=35,
         context_size=GPT_CONFIG_124M["context_length"],
         top_k=10,
-        temperature=0.9
+        temperature=0.5
     )
     generated_text = token_ids_to_text(token_ids, tokenizer)
 
