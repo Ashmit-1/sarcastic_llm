@@ -41,8 +41,10 @@ def main():
     model.load_state_dict(torch.load("sarcasm_finetuned_v1.pth"))
     model.eval();
 
-
-    tokenizer = tiktoken.get_encoding("gpt2")
+    try:
+        tokenizer = tiktoken.get_encoding("gpt2")
+    except Exception as e:
+        print("Exception occured while tiktoken")
 
 
 
