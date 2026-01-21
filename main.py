@@ -1,9 +1,9 @@
 import torch
-from untrained_model import GPTModel
+from setup_pretrainning.untrained_model import GPTModel
 import tiktoken
-from untrained_model import generate
-from untrained_model import text_to_token_ids
-from untrained_model import token_ids_to_text
+from setup_pretrainning.untrained_model import generate
+from setup_pretrainning.untrained_model import text_to_token_ids
+from setup_pretrainning.untrained_model import token_ids_to_text
 import os
 import gdown
 
@@ -28,9 +28,11 @@ def main():
     }
 
 
-    if not os.path.exists("sarcasm_finetuned_v1.pth"):
+    if not os.path.exists("sarcasm_finetuned_v2.pth"):
         print("Downloading model from google drive... This may take some time.")
-        url = "https://drive.google.com/file/d/1AijrKkkfP25ujXl3Xe0wmzG8YaIkDwpP/view?usp=sharing"
+        # url = "https://drive.google.com/file/d/1AijrKkkfP25ujXl3Xe0wmzG8YaIkDwpP/view?usp=sharing"
+        url = "https://drive.google.com/file/d/1SGX9HtMldDOgGcwM2QBI7DSRCkYDe3X/view?usp=sharing"
+        
         gdown.download(url, "sarcasm_finetuned_v1.pth", quiet=False)
         print(f"Model downloaded !!")
 
