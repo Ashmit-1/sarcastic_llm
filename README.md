@@ -53,3 +53,47 @@ uv run main.py
 
 - This is a very small scale LLM so there may be grammatical errors
 - Try changing the temperature value in the main.py file to get optimal output
+
+## Model Architecture
+
+### The main blocks of the model are:
+
+- Token + Positional Embeddings
+
+- Stacked Transformer Decoder Blocks
+
+- Causal (masked) self-attention
+
+- Feed-forward networks with GELU
+
+- Pre-LayerNorm architecture
+
+- Autoregressive text generation
+
+### Architecture Configuration
+
+| Parameter           | Value |
+| ------------------- | ----- |
+| Vocabulary Size     | 50257 |
+| Context Length      | 256   |
+| Embedding Dimension | 256   |
+| Transformer Layers  | 12    |
+| Attention Heads     | 4     |
+| Dropout Rate        | 0.1   |
+
+- #### Total Parameters: ~35.3M
+- #### Context Window: 256 tokens
+
+## Multi-head Attention
+
+![Multi Head Attention](assets/multihead_attention.png)
+
+## Model Architecture Diagram
+
+![Model Architecture](assets/gpt_model.png)
+
+### Data Sources
+
+- English Language (Natural Language Understanding) : [TinyStories Train Dataset](https://huggingface.co/datasets/roneneldan/TinyStories)
+
+- Sarcasm Finetuning Dataset: [Sarcastic Tweets](https://www.kaggle.com/datasets/nikhiljohnk/tweets-with-sarcasm-and-irony), AI Generated Question-Answer Synthetic Dataset
