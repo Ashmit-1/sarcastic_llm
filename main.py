@@ -31,9 +31,9 @@ def main():
     if not os.path.exists("sarcasm_finetuned_v2.pth"):
         print("Downloading model from google drive... This may take some time.")
         # url = "https://drive.google.com/file/d/1AijrKkkfP25ujXl3Xe0wmzG8YaIkDwpP/view?usp=sharing"
-        url = "https://drive.google.com/file/d/1SGX9HtMldDOgGcwM2QBI7DSRCkYDe3X/view?usp=sharing"
+        # url = "https://drive.google.com/file/d/1SGX9HtMldDOgGcwM2QBI7DSRCkYDe3X/view?usp=sharing"
         
-        gdown.download(url, "sarcasm_finetuned_v1.pth", quiet=False)
+        gdown.download(id="1CSsTIRGM_REGw8V2Ey242VU3Pmk61Rqe", output="sarcasm_finetuned_v2.pth", quiet=False)
         print(f"Model downloaded !!")
 
 
