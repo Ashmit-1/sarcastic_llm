@@ -56,30 +56,53 @@ def main():
     model.to(inference_device)
     model.eval()
 
-    input_query = input("Enter query: ")
+    # input_query = input("Enter query: ")
 
-    input_text = format_input({"instruction":input_query})
+    query_list = [
+        "What time is it now?",
+        "How's the weather today?",
+        "Did you finish the work?",
+        "Is everything going well?",
+        "Are you serious?",
+        "Did you take your medicine?",
+        "Did you save the game?",
+        "Did you read the contract?",
+        "Is the device working properly?",
+        "Did you check the settings?",
+        "Did you call the doctor?",
+        "Did you win the match?",
+        "Did you sign the document?",
+        "Is the battery charged?",
+        "Did you update the software?"
+    ]
+    for input_query in query_list:
 
-    token_ids = generate(
-        model=model,
-        idx=text_to_token_ids(input_text, tokenizer).to(inference_device),
-        max_new_tokens=35,
-        context_size=GPT_CONFIG_124M["context_length"],
-        top_k=10,
-        temperature=0.5
-    )
-    generated_text = token_ids_to_text(token_ids, tokenizer)
+        input_text = format_input({"instruction":input_query})
 
-    response_text = (
-        generated_text[len(input_text):]
-        .replace("### Response:", "")
-        .replace("###", "")
-        .replace("Response:", "")
-        .replace("Response", "")
-        .replace("<|endoftext|>", "")
-        .strip()
-    )
-    print( response_text)
+        token_ids = generate(
+            model=model,
+            idx=text_to_token_ids(input_text, tokenizer).to(inference_device),
+            max_new_tokens=35,
+            context_size=GPT_CONFIG_124M["context_length"],
+            top_k=25,
+            temperature=0.95
+        )
+        generated_text = token_ids_to_text(token_ids, tokenizer)
+
+        response_text = (
+            generated_text[len(input_text):]
+            .replace("### Response:", "")
+            .replace("###", "")
+            .replace("Response:", "")
+            .replace("Response", "")
+            .replace("<|endoftext|>", "")
+            .strip()
+        )
+        print(f"### Question: {input_query}")
+        print("```")
+        print("Answer: ", response_text)
+        print("```")
+
 
 
 
