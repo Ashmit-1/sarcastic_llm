@@ -92,6 +92,39 @@ uv run main.py
 
 ![Model Architecture](assets/gpt_model.png)
 
+
+## Evaluation Questions:
+
+What time is it now?
+
+How’s the weather today?
+
+Did you finish the work?
+
+Is everything going well?
+
+Are you serious?
+
+Did you take your medicine?
+
+Did you save the game?
+
+Did you read the contract?
+
+Is the device working properly?
+
+Did you check the settings?
+
+Did you call the doctor?
+
+Did you win the match?
+
+Did you sign the document?
+
+Is the battery charged?
+
+Did you update the software?
+
 ### Data Sources
 
 - English Language (Natural Language Understanding) : [TinyStories Train Dataset](https://huggingface.co/datasets/roneneldan/TinyStories)
